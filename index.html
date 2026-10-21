@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maha C Programs | 33–41</title>
+<style>
+:root{--bg:#090d16;--cyan:#17c3e8;--green:#1de9a0;--text:#edf7ff;--muted:#a8b8c9}
+*{box-sizing:border-box}
+body{margin:0;padding:22px 14px;min-height:100vh;background:radial-gradient(circle at top,#13273a 0,#090d16 55%);color:var(--text);font-family:Arial,Helvetica,sans-serif}
+.card{max-width:680px;margin:0 auto;padding:24px;border:1px solid var(--cyan);border-radius:22px;background:#111927;box-shadow:0 0 28px #17c3e81c}
+h1{text-align:center;margin:0;color:var(--green);letter-spacing:2px;font-size:clamp(25px,6vw,36px)}
+.subtitle{text-align:center;color:var(--muted);margin:9px 0 25px}
+label{display:block;margin:0 0 8px;color:#aeefff;font-weight:700}
+input{width:100%;padding:14px 15px;border:1px solid var(--cyan);border-radius:12px;background:#080e17;color:white;font-size:16px}
+button{width:100%;margin-top:14px;padding:15px;border:0;border-radius:12px;background:var(--green);color:#07150f;font-weight:800;font-size:16px;cursor:pointer}
+button:disabled{opacity:.65;cursor:wait}
+.program{padding:14px;margin-top:10px;border:1px solid #2c465b;border-radius:13px;background:#0b121e}
+.program strong{display:block;color:var(--green);margin-bottom:5px}
+.program p{margin:0;color:var(--muted);line-height:1.45}
+.section-title{margin:25px 0 12px;color:var(--cyan);font-size:18px}
+#status{margin-top:16px;line-height:1.5;color:#aeefff}
+.note{margin-top:22px;font-size:13px;line-height:1.6;color:var(--muted);text-align:center}
+footer{text-align:center;margin-top:20px;color:var(--muted);font-size:12px}
+</style>
+</head>
+<body>
+<main class="card">
+<h1>MAHA C PROGRAMS</h1>
+<p class="subtitle">C Programming Downloads · Programs 33–41</p>
+<label for="name">Enter a name for your .c files</label>
+<input id="name" type="text" placeholder="Example: Maha" maxlength="40" autocomplete="off">
+<button id="generate" type="button">GENERATE &amp; DOWNLOAD ALL 9</button>
+<div id="status" role="status" aria-live="polite"></div>
+<h2 class="section-title">YOUR 9 PROGRAMS (33–41)</h2>
+<div class="program"><strong>33 – Factorial using Recursion</strong><p>Calculates factorial recursively.</p></div>
+<div class="program"><strong>34 – Fibonacci using Recursion</strong><p>Prints Fibonacci numbers recursively.</p></div>
+<div class="program"><strong>35 – Sum of Natural Numbers</strong><p>Calculates the sum using recursion.</p></div>
+<div class="program"><strong>36 – Function Pointer</strong><p>Adds two numbers using a function pointer.</p></div>
+<div class="program"><strong>37 – Array Pointer</strong><p>Displays array elements using a pointer to an array.</p></div>
+<div class="program"><strong>38 – String Pointer</strong><p>Displays a string using a character pointer.</p></div>
+<div class="program"><strong>39 – Double Pointer</strong><p>Accesses a value using a double pointer.</p></div>
+<div class="program"><strong>40 – Array of String Pointers</strong><p>Displays names using string pointers.</p></div>
+<div class="program"><strong>41 – Pointer Arithmetic</strong><p>Displays array elements using pointer arithmetic.</p></div>
+<p class="note">One click downloads a ZIP containing all nine separate .c files. Each file uses your chosen name, for example Maha33.c through Maha41.c.</p>
+<footer>Designed for Maha · Neon Cyan Edition</footer>
+</main>
+<script>
+(function(){
+"use strict";
+var programs = [
+{suffix:"33",code:`#include <stdio.h>
+
+long long factorial(int n) {
+    if (n <= 1) return 1;
+    return n * factorial(n - 1);
+}
+
+int main(void) {
+    int n = 5;
+    printf("Factorial of %d = %lld\\n", n, factorial(n));
+    return 0;
+}`},
+{suffix:"34",code:`#include <stdio.h>
+
+int fibonacci(int n) {
+    if (n <= 1) return n;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+int main(void) {
+    int n = 6;
+    printf("Fibonacci Series: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", fibonacci(i));
+    }
+    printf("\\n");
+    return 0;
+}`},
+{suffix:"35",code:`#include <stdio.h>
+
+int sumOfNatural(int n) {
+    if (n == 0) return 0;
+    return n + sumOfNatural(n - 1);
+}
+
+int main(void) {
+    int n = 10;
+    printf("Sum of first %d natural numbers = %d\\n", n, sumOfNatural(n));
+    return 0;
+}`},
+{suffix:"36",code:`#include <stdio.h>
+
+int add(int a, int b) {
+    return a + b;
+}
+
+int main(void) {
+    int (*funptr)(int, int);
+    int result;
+
+    funptr = add;
+    result = funptr(10, 20);
+
+    printf("Sum = %d\\n", result);
+    return 0;
+}`},
+{suffix:"37",code:`#include <stdio.h>
+
+int main(void) {
+    int a[5] = {10, 20, 30, 40, 50};
+    int (*ptr)[5] = &a;
+
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", (*ptr)[i]);
+    }
+
+    printf("\\n");
+    return 0;
+}`},
+{suffix:"38",code:`#include <stdio.h>
+
+int main(void) {
+    char str[] = "Hello C";
+    char *ptr = str;
+
+    printf("String = %s\\n", ptr);
+    return 0;
+}`},
+{suffix:"39",code:`#include <stdio.h>
+
+int main(void) {
+    int num = 100;
+    int *ptr = &num;
+    int **pptr = &ptr;
+
+    printf("Value of num = %d\\n", **pptr);
+    return 0;
+}`},
+{suffix:"40",code:`#include <stdio.h>
+
+int main(void) {
+    const char *names[] = {"Apple", "Mango", "Orange"};
+
+    for (int i = 0; i < 3; i++) {
+        printf("%s\\n", names[i]);
+    }
+
+    return 0;
+}`},
+{suffix:"41",code:`#include <stdio.h>
+
+int main(void) {
+    int a[] = {10, 20, 30, 40, 50};
+    int *ptr = a;
+
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", *(ptr + i));
+    }
+
+    printf("\\n");
+    return 0;
+}`}
+];
+
+function safeName(raw) {
+    var cleaned = raw.trim().replace(/[^a-zA-Z0-9_-]/g, "");
+    return cleaned || "Maha";
+}
+function crc32(bytes) {
+    var crc = -1;
+    for (var i = 0; i < bytes.length; i++) {
+        crc ^= bytes[i];
+        for (var j = 0; j < 8; j++) crc = (crc >>> 1) ^ (-(crc & 1) & 0xEDB88320);
+    }
+    return (crc ^ -1) >>> 0;
+}
+function u16(n){ return [n & 255, (n >>> 8) & 255]; }
+function u32(n){ return [n & 255, (n >>> 8) & 255, (n >>> 16) & 255, (n >>> 24) & 255]; }
+function join(parts) {
+    var length = parts.reduce(function(sum, p){return sum + p.length;}, 0);
+    var out = new Uint8Array(length), offset = 0;
+    parts.forEach(function(p){out.set(p, offset); offset += p.length;});
+    return out;
+}
+function makeZip(files) {
+    var encoder = new TextEncoder(), localParts = [], centralParts = [], offset = 0;
+    files.forEach(function(file) {
+        var nameBytes = encoder.encode(file.name), data = encoder.encode(file.content), crc = crc32(data);
+        var local = join([
+            new Uint8Array(u32(0x04034b50)), new Uint8Array(u16(20)),
+            new Uint8Array(u16(0x0800)), new Uint8Array(u16(0)),
+            new Uint8Array(u16(0)), new Uint8Array(u16(0)),
+            new Uint8Array(u32(crc)), new Uint8Array(u32(data.length)),
+            new Uint8Array(u32(data.length)), new Uint8Array(u16(nameBytes.length)),
+            new Uint8Array(u16(0)), nameBytes, data
+        ]);
+        localParts.push(local);
+        var central = join([
+            new Uint8Array(u32(0x02014b50)), new Uint8Array(u16(20)),
+            new Uint8Array(u16(20)), new Uint8Array(u16(0x0800)),
+            new Uint8Array(u16(0)), new Uint8Array(u16(0)), new Uint8Array(u16(0)),
+            new Uint8Array(u32(crc)), new Uint8Array(u32(data.length)),
+            new Uint8Array(u32(data.length)), new Uint8Array(u16(nameBytes.length)),
+            new Uint8Array(u16(0)), new Uint8Array(u16(0)), new Uint8Array(u16(0)),
+            new Uint8Array(u16(0)), new Uint8Array(u32(0)), new Uint8Array(u32(offset)),
+            nameBytes
+        ]);
+        centralParts.push(central);
+        offset += local.length;
+    });
+    var centralSize = centralParts.reduce(function(sum,p){return sum+p.length;},0);
+    var end = join([
+        new Uint8Array(u32(0x06054b50)), new Uint8Array(u16(0)),
+        new Uint8Array(u16(0)), new Uint8Array(u16(files.length)),
+        new Uint8Array(u16(files.length)), new Uint8Array(u32(centralSize)),
+        new Uint8Array(u32(offset)), new Uint8Array(u16(0))
+    ]);
+    return new Blob([join(localParts.concat(centralParts,[end]))], {type:"application/zip"});
+}
+document.getElementById("generate").addEventListener("click", function(){
+    var button = this, input = document.getElementById("name"), status = document.getElementById("status");
+    var name = safeName(input.value);
+    var files = programs.map(function(p){return {name:name+p.suffix+".c", content:p.code+"\n"};});
+    try {
+        var blob = makeZip(files), url = URL.createObjectURL(blob), a = document.createElement("a");
+        a.href = url; a.download = name+"_programs_33-41.zip";
+        document.body.appendChild(a); a.click(); a.remove();
+        status.textContent = "Ready! Downloaded ZIP with " + files.length + " C files: " + name + "33.c to " + name + "41.c.";
+        setTimeout(function(){URL.revokeObjectURL(url);}, 30000);
+    } catch (err) {
+        status.textContent = "Download error. Please reopen this HTML in Chrome and try again.";
+    }
+});
+})();
+</script>
+</body>
+</html>
